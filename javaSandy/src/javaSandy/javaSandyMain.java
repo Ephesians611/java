@@ -1,43 +1,75 @@
 package javaSandy;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+
 public class javaSandyMain {
 
-	
-	public static void main( String[] args ) {
-	      boolean p, q;
+	// Static Data
 
-	      // Part 1: Exercise the conditional operators AND and OR .....
+	static int lines = 0;
+	static int words = 0;
+	static int characters = -1;
+	static File file = new File("C:\\Projects\\TX State\\Dev\\Eclipse_Java\\java\\Prog0.txt");
 
-	      System.out.println( "Part 1: Exercise conditional AND and OR operators");
-	      System.out.println( "=========================================");
-	      System.out.println( "       p        q     (p ^ q)     (p v q)" );
-	      System.out.println( "=========================================");
+	// `characters' is initialized to -1 because it is incremented with
+	// each read, including the final read executed at end-of-file and
+	// that final read does not actually add a character.
 
-	      p =  true; q = true;
-	      System.out.printf(  "%8s %8s %11s %11s\n", p, q, p && q, p || q );
-	      p = false; q = true;
-	      System.out.printf(  "%8s %8s %11s %11s\n", p, q, p && q, p || q );
-	      p =  true; q = false;
-	      System.out.printf(  "%8s %8s %11s %11s\n", p, q, p && q, p || q );
-	      p = false; q = false;
-	      System.out.printf(  "%8s %8s %11s %11s\n", p, q, p && q, p || q );
+	// whiteSpace returns true iff its argument is a
+	// space, newline, formfeed, tab, or carriage return.
 
-	      System.out.println( "==========================================");
+	public static boolean whiteSpace(char c) {
+		switch (c) {
+		case ' ':
+		case '\n':
+		case '\f':
+		case '\t':
+		case '\r':
+			return true;
+		default:
+			return false;
+		}
+	}
 
-	      // Part 2: the conditional OR operator (i.e., ||)
+	public static int getNext(BufferedReader br) throws java.io.IOException {
+		characters++;
+		return br.read();
+	}
 
-	      System.out.println( "");
-	      System.out.println( "Part 2: Exercise logical negation operator");
-	      System.out.println( "=========================================");
-	      System.out.println( "       p       !p                        " );
-	      System.out.println( "=========================================");
+	// The main method is invoked when this program is interpreted with
+	// the java interpreter.
 
-	      p = true; 
-	      System.out.printf(  "%8s %8s \n", p, !p );
-	      p = false; 
-	      System.out.printf(  "%8s %8s \n", p, !p );
+	public static void main(String argv[]) throws java.io.IOException {
 
-	      System.out.println( "=========================================");
+		BufferedReader br = new BufferedReader(new FileReader(file));
 
-	   } 
+		int i = getNext(br);
+
+		while (i != -1) { // Repeat until end-of-file is reached.
+
+			if (!whiteSpace((char) i)) {
+				//
+				// Word state
+				//
+				words++; // We've seen another word.
+				do { // Skip to the next white space character.
+					i = getNext(br);
+				} while (i != -1 && !whiteSpace((char) i));
+
+			} else {
+				//
+				// whiteSpace state
+				//
+				do {
+					if ((char) i == '\n') {
+						lines++; // We've seen another line;
+					}
+					i = getNext(br);
+				} while (whiteSpace((char) i));
+			}
+		}
+		System.out.println(" " + lines + " " + words + " " + characters);
+	}
 }
