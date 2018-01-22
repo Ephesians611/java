@@ -86,6 +86,7 @@ public class javaSandyMain {
 					} else {
 						whitespaces++;
 						LineLength += WordSize + whitespaces;
+
 					}
 				} while (whiteSpace((char) i) && !endofline);
 			}
