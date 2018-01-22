@@ -3,11 +3,16 @@ package javaSandy;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
 
 public class javaSandyMain {
 
 	// Static Data
-
+	static ArrayList<Integer> aLineLengths = new ArrayList<Integer>();
+	static boolean endofline = false;
+	static int whitespaces = 0;
+	static int LineLength = 0;
+	static int WordSize = 0;
 	static int lines = 0;
 	static int words = 0;
 	static int characters = -1;
@@ -48,13 +53,17 @@ public class javaSandyMain {
 		int i = getNext(br);
 
 		while (i != -1) { // Repeat until end-of-file is reached.
+			// LineLength += WordSize;
 
 			if (!whiteSpace((char) i)) {
 				//
 				// Word state
 				//
+				whitespaces = 0;
+				WordSize = 0;
 				words++; // We've seen another word.
 				do { // Skip to the next white space character.
+					WordSize++;
 					i = getNext(br);
 				} while (i != -1 && !whiteSpace((char) i));
 
@@ -62,14 +71,25 @@ public class javaSandyMain {
 				//
 				// whiteSpace state
 				//
+				whitespaces = 0;
 				do {
+					i = getNext(br);
 					if ((char) i == '\n') {
 						lines++; // We've seen another line;
+						endofline = true;
 					}
-					i = getNext(br);
-				} while (whiteSpace((char) i));
+					if (endofline) {
+						LineLength += WordSize + whitespaces;
+						aLineLengths.add(LineLength);
+						LineLength = 0;
+						endofline = false;
+					} else {
+						whitespaces++;
+						LineLength += WordSize + whitespaces;
+					}
+				} while (whiteSpace((char) i) && !endofline);
 			}
 		}
-		System.out.println(" " + lines + " " + words + " " + characters);
+		System.out.println(" " + lines + " " + words + " " + characters + " " + LineLength);
 	}
 }
