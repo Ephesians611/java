@@ -53,7 +53,6 @@ public class javaSandyMain {
 		int i = getNext(br);
 
 		while (i != -1) { // Repeat until end-of-file is reached.
-			// LineLength += WordSize;
 
 			if (!whiteSpace((char) i)) {
 				//
@@ -82,13 +81,18 @@ public class javaSandyMain {
 						LineLength += WordSize + whitespaces;
 						aLineLengths.add(LineLength);
 						LineLength = 0;
+						WordSize = 0;
 						endofline = false;
+						i = getNext(br);
+						break;
 					} else {
-						whitespaces++;
-						LineLength += WordSize + whitespaces;
-
+						if (i != '\r') {
+							whitespaces++;
+							LineLength += WordSize + whitespaces;
+						}
 					}
-				} while (whiteSpace((char) i) && !endofline);
+				} while (whiteSpace((char) i));
+
 			}
 		}
 		System.out.println(" " + lines + " " + words + " " + characters + " " + LineLength);
