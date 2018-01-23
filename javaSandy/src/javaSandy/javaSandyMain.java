@@ -9,7 +9,7 @@ public class javaSandyMain {
 
 	// Static Data
 	static ArrayList<Integer> aLineLengths = new ArrayList<Integer>();
-	static boolean endofline = false;
+	static boolean endofline, endoffile = false;
 	static int whitespaces = 0;
 	static int LineLength = 0;
 	static int WordSize = 0;
@@ -64,6 +64,12 @@ public class javaSandyMain {
 				do { // Skip to the next white space character.
 					WordSize++;
 					i = getNext(br);
+					if (i == -1) {
+						// process the last line
+						endoffile = true;
+						LineLength += WordSize + whitespaces;
+						aLineLengths.add(LineLength);
+					}
 				} while (i != -1 && !whiteSpace((char) i));
 
 			} else {
@@ -72,7 +78,9 @@ public class javaSandyMain {
 				//
 				whitespaces = 0;
 				do {
-					i = getNext(br);
+					if (!endoffile)
+						i = getNext(br);
+
 					if ((char) i == '\n') {
 						lines++; // We've seen another line;
 						endofline = true;
@@ -83,7 +91,9 @@ public class javaSandyMain {
 						LineLength = 0;
 						WordSize = 0;
 						endofline = false;
-						i = getNext(br);
+						if (!endoffile)
+							i = getNext(br);
+
 						break;
 					} else {
 						if (i != '\r') {
@@ -92,7 +102,6 @@ public class javaSandyMain {
 						}
 					}
 				} while (whiteSpace((char) i));
-
 			}
 		}
 		System.out.println(" " + lines + " " + words + " " + characters + " " + LineLength);
