@@ -110,7 +110,8 @@ public class javaSandyMain {
 		}
 		totalLineLength = totalLineLength / aLineLengths.size();
 
-		System.out.println("Number of Lines: " + lines + " Number of Words: " + words + " Number of Characters "
-				+ characters + " Average Line Length: " + totalLineLength + " Longest Word Length: " + objLongestWord);
+		System.out.println("Number of Lines: " + lines + '\n' + " Number of Words: " + words + '\n'
+				+ " Number of Characters " + characters + '\n' + " Average Line Length: " + totalLineLength + '\n'
+				+ " Longest Word Length: " + objLongestWord);
 	}
 }
