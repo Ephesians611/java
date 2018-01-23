@@ -4,18 +4,21 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class javaSandyMain {
 
 	// Static Data
+	static ArrayList<Integer> aWordLengths = new ArrayList<Integer>();
 	static ArrayList<Integer> aLineLengths = new ArrayList<Integer>();
-	static boolean endofline, endoffile = false;
+	static boolean endofline = false;
 	static int whitespaces = 0;
 	static int LineLength = 0;
 	static int WordSize = 0;
 	static int lines = 0;
 	static int words = 0;
 	static int characters = -1;
+	static int totalLineLength, avgLineLength = 0;
 	static File file = new File("C:\\Projects\\TX State\\Dev\\Eclipse_Java\\java\\Prog0.txt");
 
 	// `characters' is initialized to -1 because it is incremented with
@@ -49,7 +52,6 @@ public class javaSandyMain {
 	public static void main(String argv[]) throws java.io.IOException {
 
 		BufferedReader br = new BufferedReader(new FileReader(file));
-
 		int i = getNext(br);
 
 		while (i != -1) { // Repeat until end-of-file is reached.
@@ -66,7 +68,6 @@ public class javaSandyMain {
 					i = getNext(br);
 					if (i == -1) {
 						// process the last line
-						endoffile = true;
 						LineLength += WordSize + whitespaces;
 						aLineLengths.add(LineLength);
 					}
@@ -78,22 +79,19 @@ public class javaSandyMain {
 				//
 				whitespaces = 0;
 				do {
-					if (!endoffile)
-						i = getNext(br);
-
+					i = getNext(br);
 					if ((char) i == '\n') {
 						lines++; // We've seen another line;
 						endofline = true;
 					}
+					aWordLengths.add(WordSize);
 					if (endofline) {
 						LineLength += WordSize + whitespaces;
 						aLineLengths.add(LineLength);
 						LineLength = 0;
 						WordSize = 0;
 						endofline = false;
-						if (!endoffile)
-							i = getNext(br);
-
+						i = getNext(br);
 						break;
 					} else {
 						if (i != '\r') {
@@ -104,6 +102,15 @@ public class javaSandyMain {
 				} while (whiteSpace((char) i));
 			}
 		}
-		System.out.println(" " + lines + " " + words + " " + characters + " " + LineLength);
+
+		// extra requirements
+		Object objLongestWord = Collections.max(aWordLengths);
+		for (int ll = 0; ll < aLineLengths.size(); ll++) {
+			totalLineLength += aLineLengths.get(ll);
+		}
+		totalLineLength = totalLineLength / aLineLengths.size();
+
+		System.out.println("Number of Lines: " + lines + " Number of Words: " + words + " Number of Characters "
+				+ characters + " Average Line Length: " + totalLineLength + " Longest Word Length: " + objLongestWord);
 	}
 }
