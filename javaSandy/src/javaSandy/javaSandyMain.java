@@ -1,4 +1,5 @@
-package javaSandy;
+
+package javaSandy; //remove for running in Linux at command prompt
 
 import java.io.BufferedReader;
 import java.io.File;
