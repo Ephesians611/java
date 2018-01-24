@@ -19,7 +19,6 @@ public class javaSandyMain {
 	static int words = 0;
 	static int characters = -1;
 	static int totalLineLength, avgLineLength = 0;
-	static File file = new File("C:\\Projects\\TX State\\Dev\\Eclipse_Java\\java\\Prog0.txt");
 
 	// `characters' is initialized to -1 because it is incremented with
 	// each read, including the final read executed at end-of-file and
@@ -51,6 +50,7 @@ public class javaSandyMain {
 
 	public static void main(String argv[]) throws java.io.IOException {
 
+		File file = new File(argv[0]);
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		int i = getNext(br);
 
