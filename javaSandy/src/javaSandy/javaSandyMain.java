@@ -51,6 +51,7 @@ public class javaSandyMain {
 	public static void main(String argv[]) throws java.io.IOException {
 
 		File file = new File(argv[0]);
+
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		int i = getNext(br);
 
