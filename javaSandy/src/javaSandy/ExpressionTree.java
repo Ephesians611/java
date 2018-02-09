@@ -239,13 +239,13 @@ public class ExpressionTree {
 	}
 
 	// prints the tree out, indenting for depth
-	public static void printTree(BinaryTreeNode t, int indent) {
+	public static void printIndentedTree(BinaryTreeNode t, int indent) {
 		if (t != null) {
-			printTree(t.rightChild, indent + 3);
+			printIndentedTree(t.rightChild, indent + 3);
 			for (int i = 0; i < indent; i++)
 				System.out.print(" ");
 			System.out.println(t.item);
-			printTree(t.leftChild, indent + 3);
+			printIndentedTree(t.leftChild, indent + 3);
 		}
 	}
 
