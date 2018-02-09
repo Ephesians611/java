@@ -1,8 +1,8 @@
 package javaSandy;
 
-public class TreeNodeMul {
-	public TreeNodeMul(int i) {
-		super();
+public class TreeNodeMul extends TreeNode {
+	public TreeNodeMul(char item) {
+		super(item);
 		// TODO Auto-generated constructor stub
 	}
 }
