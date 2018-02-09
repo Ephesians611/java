@@ -2,11 +2,11 @@ package javaSandy;
 
 public class TreeNodeNum extends TreeNode {
 
-	private int value;
-
-	public TreeNodeNum(int i) {
-		super(i);
+	TreeNodeNum(char item) {
+		super(item);
 		// TODO Auto-generated constructor stub
 	}
+
+	private int value;
 
 }

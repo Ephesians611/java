@@ -97,7 +97,8 @@ public class ExpressionTree {
 	 * Displays an ASCII-art sort of representation of this tree (image-like text).
 	 */
 	public void printTree() {
-		printNode(root);
+		// printNode(root);
+		printIndentedTree(root, 0);
 	}
 
 	/**
@@ -130,23 +131,23 @@ public class ExpressionTree {
 	 * expression and walk through on paper what your code does with that
 	 * expression.
 	 */
-	public static void main(String[] args) {
-		// Test your ExpressionTree class here
-		String expression1 = "3 5 * 2 +";
-		System.out.println("Displaying: " + expression1);
-		ExpressionTree tree = new ExpressionTree(expression1);
-		tree.printExpression();
-		tree.printTree();
-
-		String expression2 = "4 2 / 5 + 3 -";
-		System.out.println("Displaying: " + expression2);
-		tree = new ExpressionTree(expression2);
-		tree.printExpression();
-		tree.printTree();
-
-		// bonus expression
-		String expression3 = "1 2 * 3 4 - 5 6 * - 7 8 9 * - * +";
-	}
+	// public static void main(String[] args) {
+	// // Test your ExpressionTree class here
+	// String expression1 = "3 5 * 2 +";
+	// System.out.println("Displaying: " + expression1);
+	// ExpressionTree tree = new ExpressionTree(expression1);
+	// tree.printExpression();
+	// tree.printTree();
+	//
+	// String expression2 = "4 2 / 5 + 3 -";
+	// System.out.println("Displaying: " + expression2);
+	// tree = new ExpressionTree(expression2);
+	// tree.printExpression();
+	// tree.printTree();
+	//
+	// // bonus expression
+	// String expression3 = "1 2 * 3 4 - 5 6 * - 7 8 9 * - * +";
+	// }
 
 	/***************************************************************************
 	 * You can (and should, for now) ignore all code below this point! This code
@@ -239,7 +240,7 @@ public class ExpressionTree {
 	}
 
 	// prints the tree out, indenting for depth
-	public static void printIndentedTree(BinaryTreeNode t, int indent) {
+	public void printIndentedTree(BinaryTreeNode t, int indent) {
 		if (t != null) {
 			printIndentedTree(t.rightChild, indent + 3);
 			for (int i = 0; i < indent; i++)

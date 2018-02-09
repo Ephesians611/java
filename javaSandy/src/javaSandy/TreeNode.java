@@ -2,71 +2,48 @@ package javaSandy;
 
 /* This is a simple TreeNode that implements the Node interface. */
 
-public class TreeNode implements Node {
-	public static final int NUM = 0;
-	public static final int ADD = 1;
-	public static final int MUL = 2;
+public class TreeNode {
 
-	protected Node[] children;
-	protected int id;
+	// class variables
+	private char item;
+	private TreeNode leftTree;
+	private TreeNode rightTree;
 
-	public TreeNode(int i) {
-		id = i;
+	// constructors
+	TreeNode(char item) {
+		this.item = item;
+		this.leftTree = null;
+		this.rightTree = null;
 	}
 
-	public void addChild(Node n, int i) {
-		if (children == null) {
-			children = new Node[i + 1];
-		} else if (i >= children.length) {
-			Node c[] = new Node[i + 1];
-			System.arraycopy(children, 0, c, 0, children.length);
-			children = c;
-		}
-		children[i] = n;
+	TreeNode(char item, TreeNode leftTree, TreeNode rightTree) {
+		this.item = item;
+		this.leftTree = leftTree;
+		this.rightTree = rightTree;
 	}
 
-	public Node getChild(int i) {
-		return children[i];
+	// getters and setters
+	public char getItem() {
+		return item;
 	}
 
-	public int getNumChildren() {
-		return (children == null) ? 0 : children.length;
+	public void setItem(char item) {
+		this.item = item;
 	}
 
-	/*
-	 * You can override these two methods in subclasses of TreeNode to customize the
-	 * way the node appears when the tree is dumped. If your output uses more than
-	 * one line you should override toString(String), otherwise overriding
-	 * toString() is probably all you need to do.
-	 */
-
-	public String toString() {
-		return "Node: " + id;
+	public TreeNode getLeftTree() {
+		return leftTree;
 	}
 
-	public String toString(String prefix) {
-		return prefix + toString();
+	public void setLeftTree(TreeNode leftTree) {
+		this.leftTree = leftTree;
 	}
 
-	/*
-	 * Override this method if you want to customize how the node dumps out its
-	 * children.
-	 */
-
-	public void dump(String prefix) {
-		System.out.println(toString(prefix));
-		if (children != null) {
-			for (int i = 0; i < children.length; ++i) {
-				TreeNode n = (TreeNode) children[i];
-				if (n != null) {
-					n.dump(prefix + " ");
-				}
-			}
-		}
+	public TreeNode getRightTree() {
+		return rightTree;
 	}
 
-	public Object clone() {
-		return children;
-
+	public void setRightTree(TreeNode rightTree) {
+		this.rightTree = rightTree;
 	}
 }

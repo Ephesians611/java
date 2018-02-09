@@ -2,8 +2,8 @@ package javaSandy;
 
 public class TreeNodeAdd extends TreeNode {
 
-	public TreeNodeAdd(int i) {
-		super(i);
+	TreeNodeAdd(char item) {
+		super(item);
 		// TODO Auto-generated constructor stub
 	}
 
