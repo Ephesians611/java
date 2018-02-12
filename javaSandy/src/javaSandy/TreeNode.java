@@ -46,4 +46,13 @@ public class TreeNode {
 	public void setRightTree(TreeNode rightTree) {
 		this.rightTree = rightTree;
 	}
+
+	public TreeNode clone(TreeNode root) {
+		if (root == null)
+			return null;
+		TreeNode newNode = new TreeNode(root.getItem());
+		newNode.setLeftTree(clone(root.getLeftTree()));
+		newNode.setRightTree(clone(root.getRightTree()));
+		return newNode;
+	}
 }

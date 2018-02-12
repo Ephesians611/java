@@ -117,12 +117,9 @@ public class BSTree {
 		}
 	}
 
-	public TreeNode cloneTree(TreeNode root) {
+	public TreeNode copyTree(TreeNode root) {
 		if (root == null)
 			return null;
-		TreeNode newNode = new TreeNode(root.getItem());
-		newNode.setLeftTree(cloneTree(root.getLeftTree()));
-		newNode.setRightTree(cloneTree(root.getRightTree()));
-		return newNode;
+		return root.clone(root);
 	}
 }

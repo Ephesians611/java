@@ -49,8 +49,9 @@ public class p7 {
 			// tree.preorder(tree.getRoot());
 			tree.printIndentedTree(tree.getRoot(), 0);
 
+			// clone tree
 			BSTree treeCopy = new BSTree(' ');
-			treeCopy.setRootNode(tree.cloneTree(tree.getRoot()));
+			treeCopy.setRootNode(tree.copyTree(tree.getRoot()));
 			treeCopy.printIndentedTree(tree.getRoot(), 0);
 
 			System.out.println("\n\n\n");
