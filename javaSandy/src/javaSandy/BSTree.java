@@ -22,6 +22,14 @@ public class BSTree {
 		}
 	}
 
+	public void setRootNode(TreeNode rootNode) {
+		if (root == null) {
+			// root = new TreeNode(value, null, null);
+		} else {
+			root = rootNode;
+		}
+	}
+
 	public void attachLeft(char item) {
 		if (!isEmpty() && root.getLeftTree() == null) {
 			root.setLeftTree(new TreeNode(item, null, null));
@@ -107,5 +115,14 @@ public class BSTree {
 			System.out.println(t.getItem());
 			printIndentedTree(t.getLeftTree(), indent + 3);
 		}
+	}
+
+	public TreeNode cloneTree(TreeNode root) {
+		if (root == null)
+			return null;
+		TreeNode newNode = new TreeNode(root.getItem());
+		newNode.setLeftTree(cloneTree(root.getLeftTree()));
+		newNode.setRightTree(cloneTree(root.getRightTree()));
+		return newNode;
 	}
 }
