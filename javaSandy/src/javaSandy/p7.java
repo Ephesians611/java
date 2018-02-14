@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class p7 {
 
 	public static void main(String[] args) throws Exception {
+		System.out.println("\n");
 		System.out.println(">>> Simplified Arithmetic Post-fix Expression Evaluator <<<");
 		System.out.println("Enter a simplified arithmetic post-fix expression:");
 		// File path for compilation on CS server
@@ -72,6 +73,7 @@ public class p7 {
 
 			// 6. Evaluate the new tree; and
 			System.out.println("The value of the new tree: " + BSTree.evaluate(treeCopy.getRoot()));
+			System.out.println("\n");
 
 			// 7. Re-evaluate the orginal tree.
 			System.out.println("The value of the original tree: " + BSTree.evaluate(tree.getRoot()));
