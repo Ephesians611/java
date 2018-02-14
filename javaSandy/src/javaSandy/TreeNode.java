@@ -2,7 +2,7 @@ package javaSandy;
 
 /* This is a simple TreeNode that implements the Node interface. */
 
-public class TreeNode {
+public class TreeNode implements Node {
 
 	// class variables
 	private char item;
@@ -69,5 +69,23 @@ public class TreeNode {
 		newNode.setLeftTree(clone(root.getLeftTree()));
 		newNode.setRightTree(clone(root.getRightTree()));
 		return newNode;
+	}
+
+	@Override
+	public void addChild(Node n, int i) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Node getChild(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getNumChildren() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
