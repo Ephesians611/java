@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class p7 {
 
 	public static void main(String[] args) throws Exception {
-
+		System.out.println(">>> Simplified Arithmetic Post-fix Expression Evaluator <<<");
+		System.out.println("Enter a simplified arithmetic post-fix expression:");
 		// File path for compilation on CS server
 		// String fileName = "/home/courses/cs2411/ProgramFiles/" + args[0];
 
@@ -45,16 +46,19 @@ public class p7 {
 			}
 
 			BSTree tree = stack.pop();
+			System.out.println(expression);
+			System.out.println("\n");
 
 			// 2. Print its tree representation;
+			System.out.println("The tree representation:");
 			tree.printIndentedTree(tree.getRoot(), 0);
-
-			System.out.println("Postfix expression: " + expression);
+			System.out.println("\n");
 
 			// 3. Evaluate the tree;
-			System.out.println("Result: " + BSTree.evaluate(tree.getRoot()));
+			System.out.println("The value: " + BSTree.evaluate(tree.getRoot()));
 			// System.out.print("Prefix: ");
 			// tree.preorder(tree.getRoot());
+			System.out.println("\n");
 
 			// 4. Clone the tree and swap the ' + ' and ' * ' operators in the cloned tree
 			// to produce a new tree;
@@ -62,15 +66,17 @@ public class p7 {
 			treeCopy.setRootNode(tree.copyTree(tree.getRoot()));
 
 			// 5. Print the new tree;
-			treeCopy.printIndentedTree(tree.getRoot(), 0);
+			System.out.println("The new tree:");
+			treeCopy.printIndentedTree(treeCopy.getRoot(), 0);
+			System.out.println("\n");
 
 			// 6. Evaluate the new tree; and
-			System.out.println("Result: " + BSTree.evaluate(treeCopy.getRoot()));
+			System.out.println("The value of the new tree: " + BSTree.evaluate(treeCopy.getRoot()));
 
 			// 7. Re-evaluate the orginal tree.
-			System.out.println("Result: " + BSTree.evaluate(tree.getRoot()));
+			System.out.println("The value of the original tree: " + BSTree.evaluate(tree.getRoot()));
 
-			System.out.println("\n\n\n");
+			System.out.println("\n\n");
 		}
 	}
 }
