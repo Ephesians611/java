@@ -8,7 +8,7 @@ public class p7 {
 	public static void main(String[] args) throws Exception {
 		System.out.println("\n");
 		System.out.println(">>> Simplified Arithmetic Post-fix Expression Evaluator <<<");
-		System.out.println("Enter a simplified arithmetic post-fix expression:");
+		System.out.println("Enter a simplified arithmetic post-fix expression with no white-spaces:");
 		// File path for compilation on CS server
 		// String fileName = "/home/courses/cs2411/ProgramFiles/" + args[0];
 
@@ -68,11 +68,11 @@ public class p7 {
 
 			// 5. Print the new tree;
 			System.out.println("The new tree:");
-			treeCopy.printIndentedTree(treeCopy.getRoot(), 0);
+			treeCopy.printIndentedClonedTree(treeCopy.getRoot(), 0);
 			System.out.println("\n");
 
 			// 6. Evaluate the new tree; and
-			System.out.println("The value of the new tree: " + BSTree.evaluate(treeCopy.getRoot()));
+			System.out.println("The value of the new tree: " + BSTree.evaluateCloned(treeCopy.getRoot()));
 			System.out.println("\n");
 
 			// 7. Re-evaluate the orginal tree.

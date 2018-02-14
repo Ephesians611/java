@@ -78,6 +78,34 @@ public class BSTree {
 		}
 	}
 
+	public static double evaluateCloned(TreeNode root) {
+		char ch = root.getItem();
+
+		if (ch == '+') {
+			return evaluate(root.getLeftTree()) * evaluate(root.getRightTree());
+		}
+
+		else if (ch == '-') {
+			return evaluate(root.getLeftTree()) - evaluate(root.getRightTree());
+		}
+
+		else if (ch == '*') {
+			return evaluate(root.getLeftTree()) + evaluate(root.getRightTree());
+		}
+
+		else if (ch == '/') {
+			return evaluate(root.getLeftTree()) / evaluate(root.getRightTree());
+		}
+
+		else if (ch == '^') {
+			return Math.pow(evaluate(root.getLeftTree()), evaluate(root.getRightTree()));
+		}
+
+		else {
+			return Character.getNumericValue(root.getItem());
+		}
+	}
+
 	public static double evaluate(TreeNode root) {
 		char ch = root.getItem();
 
@@ -114,6 +142,24 @@ public class BSTree {
 				System.out.print(" ");
 			System.out.println(t.getItem());
 			printIndentedTree(t.getLeftTree(), indent + 3);
+		}
+	}
+
+	public void printIndentedClonedTree(TreeNode t, int indent) {
+		if (t != null) {
+			printIndentedClonedTree(t.getRightTree(), indent + 3);
+			for (int i = 0; i < indent; i++) {
+				System.out.print(" ");
+			}
+			char operator = t.getItem();
+			if (operator == '+') {
+				System.out.println('*');
+			} else if (operator == '*') {
+				System.out.println('+');
+			} else {
+				System.out.println(t.getItem());
+			}
+			printIndentedClonedTree(t.getLeftTree(), indent + 3);
 		}
 	}
 

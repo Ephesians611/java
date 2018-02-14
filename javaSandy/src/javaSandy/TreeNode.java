@@ -8,15 +8,28 @@ public class TreeNode {
 	private char item;
 	private TreeNode leftTree;
 	private TreeNode rightTree;
+	TreeNodeNum tnn;
 
 	// constructors
+	TreeNode() {
+		tnn = new TreeNodeNum();
+		// this.item = tnn.getItem();
+		// this.item = item;
+		this.leftTree = null;
+		this.rightTree = null;
+	}
+
 	TreeNode(char item) {
+		// tnn = new TreeNodeNum(item);
+		// this.item = tnn.getItem();
 		this.item = item;
 		this.leftTree = null;
 		this.rightTree = null;
 	}
 
 	TreeNode(char item, TreeNode leftTree, TreeNode rightTree) {
+		// tnn = new TreeNodeNum(item);
+		// this.item = tnn.getItem();
 		this.item = item;
 		this.leftTree = leftTree;
 		this.rightTree = rightTree;
@@ -24,11 +37,13 @@ public class TreeNode {
 
 	// getters and setters
 	public char getItem() {
-		return item;
+		// return tnn.getItem();
+		return this.item;
 	}
 
 	public void setItem(char item) {
 		this.item = item;
+		tnn.setItem(item);
 	}
 
 	public TreeNode getLeftTree() {

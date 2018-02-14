@@ -2,7 +2,7 @@ package javaSandy;
 
 public class TreeNodeNum extends TreeNode {
 
-	private int item;
+	private char item;
 
 	TreeNodeNum(char item) {
 		super(item);
@@ -10,4 +10,18 @@ public class TreeNodeNum extends TreeNode {
 		// TODO Auto-generated constructor stub
 	}
 
+	TreeNodeNum() {
+		super();
+		// this.item = item;
+		// TODO Auto-generated constructor stub
+	}
+
+	// getters and setters
+	public char getItem() {
+		return item;
+	}
+
+	public void setItem(char item) {
+		this.item = item;
+	}
 }
