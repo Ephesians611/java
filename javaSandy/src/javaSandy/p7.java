@@ -9,6 +9,9 @@ public class p7 {
 
 		// File path for compilation on CS server
 		// String fileName = "/home/courses/cs2411/ProgramFiles/" + args[0];
+
+		// 1. Read in a simplified arithmetic expression and build its binary tree
+		// representation;
 		String fileName = "p7.dat";
 
 		File file = new File(fileName);
@@ -43,16 +46,29 @@ public class p7 {
 
 			BSTree tree = stack.pop();
 
-			System.out.println("Postfix expression: " + expression);
-			System.out.println("Result: " + BSTree.evaluate(tree.getRoot()));
-			System.out.print("Prefix: ");
-			// tree.preorder(tree.getRoot());
+			// 2. Print its tree representation;
 			tree.printIndentedTree(tree.getRoot(), 0);
 
-			// clone tree
+			System.out.println("Postfix expression: " + expression);
+
+			// 3. Evaluate the tree;
+			System.out.println("Result: " + BSTree.evaluate(tree.getRoot()));
+			// System.out.print("Prefix: ");
+			// tree.preorder(tree.getRoot());
+
+			// 4. Clone the tree and swap the ' + ' and ' * ' operators in the cloned tree
+			// to produce a new tree;
 			BSTree treeCopy = new BSTree(' ');
 			treeCopy.setRootNode(tree.copyTree(tree.getRoot()));
+
+			// 5. Print the new tree;
 			treeCopy.printIndentedTree(tree.getRoot(), 0);
+
+			// 6. Evaluate the new tree; and
+			System.out.println("Result: " + BSTree.evaluate(treeCopy.getRoot()));
+
+			// 7. Re-evaluate the orginal tree.
+			System.out.println("Result: " + BSTree.evaluate(tree.getRoot()));
 
 			System.out.println("\n\n\n");
 		}
