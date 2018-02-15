@@ -8,6 +8,15 @@ public class TreeNodeAdd extends TreeNode {
 	}
 
 	public static double evaluate(TreeNode leftNode, TreeNode rightNode) {
-		return leftNode.getItem() + rightNode.getItem();
+		char leftCh = leftNode.getItem();
+		char righttCh = rightNode.getItem();
+
+		if ((leftCh != '+' && leftCh != '-' && leftCh != '*' && leftCh != '/')
+				&& (righttCh != '+' && righttCh != '-' && righttCh != '*' && righttCh != '/')) {
+			return leftNode.getItem() + rightNode.getItem();
+		}
+
+		return 0;
+
 	}
 }
