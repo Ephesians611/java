@@ -7,7 +7,7 @@ public class TreeNodeAdd extends TreeNode {
 		// TODO Auto-generated constructor stub
 	}
 
-	public static double evaluate(TreeNode root) {
-		return evaluate(root.getLeftTree()) + evaluate(root.getRightTree());
+	public static double evaluate(TreeNode leftNode, TreeNode rightNode) {
+		return leftNode.getItem() + rightNode.getItem();
 	}
 }
