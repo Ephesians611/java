@@ -82,8 +82,8 @@ public class BSTree {
 		char ch = root.getItem();
 
 		if (ch == '+') {
-			// return evaluate(root.getLeftTree()) * evaluate(root.getRightTree());
-			return TreeNodeAdd.evaluate(root.getLeftTree(), root.getRightTree());
+			return evaluate(root.getLeftTree()) * evaluate(root.getRightTree());
+			// return TreeNodeAdd.evaluate(root.getLeftTree(), root.getRightTree());
 		}
 
 		else if (ch == '-') {
@@ -91,8 +91,8 @@ public class BSTree {
 		}
 
 		else if (ch == '*') {
-			// return evaluate(root.getLeftTree()) + evaluate(root.getRightTree());
-			return TreeNodeMul.evaluate(root.getLeftTree(), root.getRightTree());
+			return evaluate(root.getLeftTree()) + evaluate(root.getRightTree());
+			// return TreeNodeMul.evaluate(root.getLeftTree(), root.getRightTree());
 		}
 
 		else if (ch == '/') {
