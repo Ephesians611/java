@@ -1,6 +1,5 @@
 package javaSandy;
 
-import java.io.File;
 import java.util.Scanner;
 
 public class p7 {
@@ -14,10 +13,11 @@ public class p7 {
 
 		// 1. Read in a simplified arithmetic expression and build its binary tree
 		// representation;
-		String fileName = "p7.dat";
+		// String fileName = "p7.dat";
 
-		File file = new File(fileName);
-		Scanner fInput = new Scanner(file);
+		// File file = new File(fileName);
+		// Scanner fInput = new Scanner(file);
+		Scanner fInput = new Scanner(System.in);
 
 		Stack stack = new Stack();
 
