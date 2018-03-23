@@ -73,15 +73,18 @@ TOKEN : /* LITERALS */
   < #OCTAL_LITERAL: "0" (["0"-"7"])* >
 }
 
+TOKEN :
+{
+	<LAMBDA: "L">
+}
+
 TOKEN : /* IDENTIFIERS */
 {
-  < IDENTIFIER: <LAMBDA> | <LETTER> (<LETTER>|<DIGIT>)* >
+  < IDENTIFIER: <LETTER> (<LETTER>|<DIGIT>)* >
 |
   < #LETTER: ["_","a"-"z","A"-"Z"] >
 |
   < #DIGIT: ["0"-"9"] >
-|
-  < #LAMBDA: ["L"] >
 }
 
 ASTStart Start() : {}
@@ -90,29 +93,36 @@ ASTStart Start() : {}
   { return jjtThis; }
 }
 
-
 void Expression() #void : {}
 {
-  AdditiveExpression()
+  	var()
+  |
+  	num() | "+" #add(0) | "-" #sub(0) | "*" #mul(0) | "/" #div(0)
+  |
+  	"(" Expression()+ ")"
+  |
+  	"(" <LAMBDA> var()+ "." Expression()+ ")"
 }
 
-void AdditiveExpression() #void : {}
+void Application() #void : {}
 {
   (
-    MultiplicativeExpression() ( ( "+" | "-" ) MultiplicativeExpression() )*
-  ) #Add(>1)
+    "(" Expression()+ ")"
+  ) 
 }
 
-void MultiplicativeExpression() #void : {}
+void Abstraction() #void : {}
 {
   (
-    UnaryExpression() ( ( "*" | "/" | "%" ) UnaryExpression() )*
-  ) #Mult(>1)
+    <LAMBDA> var()+ "." Application() )*
+  )
 }
 
-void UnaryExpression() #void : {}
+void Body() #void : {}
 {
-  "(" Expression() ")" | MyID() | Integer()
+  	"." Application() 
+  | 
+  	Var() Body() #LAMBDA(2)
 }
 
 void MyID() :
@@ -124,9 +134,4 @@ void MyID() :
   {
     jjtThis.setName(t.image);
   }
-}
-
-void Integer() : {}
-{
-  <INTEGER_LITERAL>
 }
