@@ -7,12 +7,12 @@ public class ASTMult extends SimpleNode {
 		super(id);
 	}
 
-	public ASTMult(P2 p, int id) {
+	public ASTMult(Prog2 p, int id) {
 		super(p, id);
 	}
 
 }
 /*
- * JavaCC - OriginalChecksum=aebbd1e21b0c0505122dada3321a8211 (do not edit this
+ * JavaCC - OriginalChecksum=beb723565c4024ef4e1fad467c26a9f0 (do not edit this
  * line)
  */

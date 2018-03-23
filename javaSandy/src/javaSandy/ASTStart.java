@@ -7,12 +7,12 @@ public class ASTStart extends SimpleNode {
 		super(id);
 	}
 
-	public ASTStart(P2 p, int id) {
+	public ASTStart(Prog2 p, int id) {
 		super(p, id);
 	}
 
 }
 /*
- * JavaCC - OriginalChecksum=b3c0f50c9146708f544c76d47209abc1 (do not edit this
+ * JavaCC - OriginalChecksum=6856a93df895b5e2ada85026405da5b2 (do not edit this
  * line)
  */

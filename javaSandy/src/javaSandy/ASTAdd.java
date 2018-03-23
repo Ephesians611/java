@@ -7,12 +7,12 @@ public class ASTAdd extends SimpleNode {
 		super(id);
 	}
 
-	public ASTAdd(P2 p, int id) {
+	public ASTAdd(Prog2 p, int id) {
 		super(p, id);
 	}
 
 }
 /*
- * JavaCC - OriginalChecksum=e6e47a0abec5c1b61624e2028b170076 (do not edit this
+ * JavaCC - OriginalChecksum=28691e030ce06f9fea8f695a564c357b (do not edit this
  * line)
  */
