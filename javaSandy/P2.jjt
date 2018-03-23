@@ -61,11 +61,13 @@ TOKEN : /* LITERALS */
 
 TOKEN : /* IDENTIFIERS */
 {
-  < IDENTIFIER: <LETTER> (<LETTER>|<DIGIT>)* >
+  < IDENTIFIER: <LAMBDA> | <LETTER> (<LETTER>|<DIGIT>)* >
 |
   < #LETTER: ["_","a"-"z","A"-"Z"] >
 |
   < #DIGIT: ["0"-"9"] >
+|
+  < #LAMBDA: ["L"] >
 }
 
 ASTStart Start() : {}
