@@ -7,12 +7,12 @@ public class ASTInteger extends SimpleNode {
 		super(id);
 	}
 
-	public ASTInteger(eg2 p, int id) {
+	public ASTInteger(P2 p, int id) {
 		super(p, id);
 	}
 
 }
 /*
- * JavaCC - OriginalChecksum=0fecf608b19b57a85a1242508af7318d (do not edit this
+ * JavaCC - OriginalChecksum=464e01512e91932f3cb0722992c659cf (do not edit this
  * line)
  */

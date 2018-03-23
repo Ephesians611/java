@@ -13,12 +13,12 @@ options {
               // (with different types of nodes)
 }
 
-PARSER_BEGIN(eg2)
+PARSER_BEGIN(P2)
 
-class eg2 {
+class P2 {
   public static void main(String args[]) {
     System.out.println("Reading from standard input...");
-    eg2 t = new eg2(System.in);
+    P2 t = new P2(System.in);
     try {
       ASTStart n = t.Start();
       n.dump("");
@@ -31,7 +31,7 @@ class eg2 {
   }
 }
 
-PARSER_END(eg2)
+PARSER_END(P2)
 
 
 SKIP :

@@ -8,13 +8,13 @@ public class SimpleNode implements Node {
 	protected Node[] children;
 	protected int id;
 	protected Object value;
-	protected eg2 parser;
+	protected P2 parser;
 
 	public SimpleNode(int i) {
 		id = i;
 	}
 
-	public SimpleNode(eg2 p, int i) {
+	public SimpleNode(P2 p, int i) {
 		this(i);
 		parser = p;
 	}
@@ -68,7 +68,7 @@ public class SimpleNode implements Node {
 	 */
 
 	public String toString() {
-		return eg2TreeConstants.jjtNodeName[id];
+		return P2TreeConstants.jjtNodeName[id];
 	}
 
 	public String toString(String prefix) {
@@ -94,6 +94,6 @@ public class SimpleNode implements Node {
 }
 
 /*
- * JavaCC - OriginalChecksum=342c25ce1ecd47a0e70d19c40ec603b6 (do not edit this
+ * JavaCC - OriginalChecksum=bba69a72f52322ef0932125e5c6ba37d (do not edit this
  * line)
  */
