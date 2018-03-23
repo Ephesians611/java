@@ -5,11 +5,25 @@ class Prog2/* @bgen(jjtree) */ implements Prog2TreeConstants, Prog2Constants {/*
 	protected static JJTProg2State jjtree = new JJTProg2State();
 
 	public static void main(String args[]) {
-		System.out.println("Reading from standard input...");
+		System.out.println(">>> Lambda Expression Evaluator <<<");
+		System.out.println("Enter an applied Lambda expression:");
+
 		Prog2 t = new Prog2(System.in);
 		try {
 			ASTStart n = t.Start();
+
+			System.out.println("");
+			System.out.println("The abstract syntax tree:");
 			n.dump("");
+
+			System.out.println("");
+			System.out.println("The Lambda expression in the concrete syntax:");
+			System.out.println("");
+
+			System.out.println("The abstract syntax tree with free variables:");
+			n.dump("");
+
+			System.out.println("");
 			System.out.println("Thank you.");
 		} catch (Exception e) {
 			System.out.println("Oops.");
