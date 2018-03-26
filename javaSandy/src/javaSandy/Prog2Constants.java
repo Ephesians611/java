@@ -18,20 +18,20 @@ public interface Prog2Constants {
 	/** RegularExpression Id. */
 	int OCTAL_LITERAL = 10;
 	/** RegularExpression Id. */
-	int IDENTIFIER = 11;
+	int LAMBDA = 11;
 	/** RegularExpression Id. */
-	int LETTER = 12;
+	int IDENTIFIER = 12;
 	/** RegularExpression Id. */
-	int DIGIT = 13;
+	int LETTER = 13;
 	/** RegularExpression Id. */
-	int LAMBDA = 14;
+	int DIGIT = 14;
 
 	/** Lexical state. */
 	int DEFAULT = 0;
 
 	/** Literal token values. */
 	String[] tokenImage = { "<EOF>", "\" \"", "\"\\t\"", "\"\\n\"", "\"\\r\"", "<token of kind 5>", "<token of kind 6>",
-			"<INTEGER_LITERAL>", "<DECIMAL_LITERAL>", "<HEX_LITERAL>", "<OCTAL_LITERAL>", "<IDENTIFIER>", "<LETTER>",
-			"<DIGIT>", "<LAMBDA>", "\"+\"", "\"-\"", "\"*\"", "\"/\"", "\"%\"", "\"(\"", "\")\"", };
+			"<INTEGER_LITERAL>", "<DECIMAL_LITERAL>", "<HEX_LITERAL>", "<OCTAL_LITERAL>", "\"L\"", "<IDENTIFIER>",
+			"<LETTER>", "<DIGIT>", "\"+\"", "\"-\"", "\"*\"", "\"/\"", "\"(\"", "\")\"", "\".\"", };
 
 }

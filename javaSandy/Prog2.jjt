@@ -93,36 +93,44 @@ ASTStart Start() : {}
   { return jjtThis; }
 }
 
+
 void Expression() #void : {}
 {
   	var()
   |
   	num() | "+" #add(0) | "-" #sub(0) | "*" #mul(0) | "/" #div(0)
   |
-  	"(" Expression()+ ")"
+  	"(" Expression()("+") ")"
   |
-  	"(" <LAMBDA> var()+ "." Expression()+ ")"
+  	"(" <LAMBDA> var()("+") "." Expression()("+") ")"
 }
 
 void Application() #void : {}
 {
   (
-    "(" Expression()+ ")"
+    "(" Expression()("+") ")"
   ) 
 }
 
 void Abstraction() #void : {}
 {
-  (
-    <LAMBDA> var()+ "." Application() )*
-  )
+    ( <LAMBDA> var()("+") "." Application() )*
 }
 
 void Body() #void : {}
 {
   	"." Application() 
   | 
-  	Var() Body() #LAMBDA(2)
+  	var() Body() #LAMBDA(2)
+}
+void var() #void : {}
+{
+ 	<IDENTIFIER>
+}
+
+void num() #void : {}
+{
+	<INTEGER_LITERAL>
 }
 
 void MyID() :

@@ -31,20 +31,22 @@ public class Prog2TokenManager implements Prog2Constants {
 
 	static private int jjMoveStringLiteralDfa0_0() {
 		switch (curChar) {
-		case 37:
-			return jjStopAtPos(0, 19);
 		case 40:
-			return jjStopAtPos(0, 20);
+			return jjStopAtPos(0, 19);
 		case 41:
-			return jjStopAtPos(0, 21);
+			return jjStopAtPos(0, 20);
 		case 42:
 			return jjStopAtPos(0, 17);
 		case 43:
 			return jjStopAtPos(0, 15);
 		case 45:
 			return jjStopAtPos(0, 16);
+		case 46:
+			return jjStopAtPos(0, 21);
 		case 47:
-			return jjStartNfaWithStates_0(0, 18, 11);
+			return jjStartNfaWithStates_0(0, 18, 10);
+		case 76:
+			return jjStartNfaWithStates_0(0, 11, 4);
 		default:
 			return jjMoveNfa_0(0, 0);
 		}
@@ -65,7 +67,7 @@ public class Prog2TokenManager implements Prog2Constants {
 
 	static private int jjMoveNfa_0(int startState, int curPos) {
 		int startsAt = 0;
-		jjnewStateCnt = 22;
+		jjnewStateCnt = 21;
 		int i = 1;
 		jjstateSet[0] = startState;
 		int kind = 0x7fffffff;
@@ -76,24 +78,24 @@ public class Prog2TokenManager implements Prog2Constants {
 				long l = 1L << curChar;
 				do {
 					switch (jjstateSet[--i]) {
+					case 10:
+						if (curChar == 42)
+							jjCheckNAddTwoStates(16, 17);
+						else if (curChar == 47)
+							jjCheckNAddStates(0, 2);
+						break;
 					case 0:
 						if ((0x3fe000000000000L & l) != 0L) {
 							if (kind > 7)
 								kind = 7;
 							jjCheckNAddTwoStates(1, 2);
 						} else if (curChar == 47)
-							jjAddStates(0, 1);
+							jjAddStates(3, 4);
 						else if (curChar == 48) {
 							if (kind > 7)
 								kind = 7;
-							jjCheckNAddStates(2, 4);
-						}
-						break;
-					case 11:
-						if (curChar == 42)
-							jjCheckNAddTwoStates(17, 18);
-						else if (curChar == 47)
 							jjCheckNAddStates(5, 7);
+						}
 						break;
 					case 1:
 						if ((0x3ff000000000000L & l) == 0L)
@@ -102,75 +104,75 @@ public class Prog2TokenManager implements Prog2Constants {
 							kind = 7;
 						jjCheckNAddTwoStates(1, 2);
 						break;
-					case 5:
+					case 4:
 						if ((0x3ff000000000000L & l) == 0L)
 							break;
-						if (kind > 11)
-							kind = 11;
-						jjstateSet[jjnewStateCnt++] = 5;
+						if (kind > 12)
+							kind = 12;
+						jjstateSet[jjnewStateCnt++] = 4;
 						break;
-					case 6:
+					case 5:
 						if (curChar != 48)
 							break;
 						if (kind > 7)
 							kind = 7;
-						jjCheckNAddStates(2, 4);
+						jjCheckNAddStates(5, 7);
+						break;
+					case 7:
+						if ((0x3ff000000000000L & l) == 0L)
+							break;
+						if (kind > 7)
+							kind = 7;
+						jjCheckNAddTwoStates(7, 2);
 						break;
 					case 8:
-						if ((0x3ff000000000000L & l) == 0L)
+						if ((0xff000000000000L & l) == 0L)
 							break;
 						if (kind > 7)
 							kind = 7;
 						jjCheckNAddTwoStates(8, 2);
 						break;
 					case 9:
-						if ((0xff000000000000L & l) == 0L)
-							break;
-						if (kind > 7)
-							kind = 7;
-						jjCheckNAddTwoStates(9, 2);
-						break;
-					case 10:
 						if (curChar == 47)
-							jjAddStates(0, 1);
+							jjAddStates(3, 4);
+						break;
+					case 11:
+						if ((0xffffffffffffdbffL & l) != 0L)
+							jjCheckNAddStates(0, 2);
 						break;
 					case 12:
-						if ((0xffffffffffffdbffL & l) != 0L)
-							jjCheckNAddStates(5, 7);
-						break;
-					case 13:
 						if ((0x2400L & l) != 0L && kind > 5)
 							kind = 5;
 						break;
-					case 14:
+					case 13:
 						if (curChar == 10 && kind > 5)
 							kind = 5;
 						break;
-					case 15:
+					case 14:
 						if (curChar == 13)
-							jjstateSet[jjnewStateCnt++] = 14;
+							jjstateSet[jjnewStateCnt++] = 13;
+						break;
+					case 15:
+						if (curChar == 42)
+							jjCheckNAddTwoStates(16, 17);
 						break;
 					case 16:
-						if (curChar == 42)
-							jjCheckNAddTwoStates(17, 18);
+						if ((0xfffffbffffffffffL & l) != 0L)
+							jjCheckNAddTwoStates(16, 17);
 						break;
 					case 17:
-						if ((0xfffffbffffffffffL & l) != 0L)
-							jjCheckNAddTwoStates(17, 18);
-						break;
-					case 18:
 						if (curChar == 42)
 							jjAddStates(8, 9);
 						break;
-					case 19:
+					case 18:
 						if ((0xffff7fffffffffffL & l) != 0L)
-							jjCheckNAddTwoStates(20, 18);
+							jjCheckNAddTwoStates(19, 17);
+						break;
+					case 19:
+						if ((0xfffffbffffffffffL & l) != 0L)
+							jjCheckNAddTwoStates(19, 17);
 						break;
 					case 20:
-						if ((0xfffffbffffffffffL & l) != 0L)
-							jjCheckNAddTwoStates(20, 18);
-						break;
-					case 21:
 						if (curChar == 47 && kind > 6)
 							kind = 6;
 						break;
@@ -183,52 +185,37 @@ public class Prog2TokenManager implements Prog2Constants {
 				do {
 					switch (jjstateSet[--i]) {
 					case 0:
-						if ((0x7fffffe87fffffeL & l) != 0L) {
-							if (kind > 11)
-								kind = 11;
-							jjCheckNAdd(5);
-						}
-						if (curChar == 76) {
-							if (kind > 11)
-								kind = 11;
-						}
+					case 4:
+						if ((0x7fffffe87fffffeL & l) == 0L)
+							break;
+						if (kind > 12)
+							kind = 12;
+						jjCheckNAdd(4);
 						break;
 					case 2:
 						if ((0x100000001000L & l) != 0L && kind > 7)
 							kind = 7;
 						break;
-					case 3:
-						if (curChar == 76 && kind > 11)
-							kind = 11;
-						break;
-					case 4:
-					case 5:
-						if ((0x7fffffe87fffffeL & l) == 0L)
-							break;
-						if (kind > 11)
-							kind = 11;
-						jjCheckNAdd(5);
+					case 6:
+						if ((0x100000001000000L & l) != 0L)
+							jjCheckNAdd(7);
 						break;
 					case 7:
-						if ((0x100000001000000L & l) != 0L)
-							jjCheckNAdd(8);
-						break;
-					case 8:
 						if ((0x7e0000007eL & l) == 0L)
 							break;
 						if (kind > 7)
 							kind = 7;
-						jjCheckNAddTwoStates(8, 2);
+						jjCheckNAddTwoStates(7, 2);
 						break;
-					case 12:
-						jjAddStates(5, 7);
+					case 11:
+						jjAddStates(0, 2);
 						break;
-					case 17:
-						jjCheckNAddTwoStates(17, 18);
+					case 16:
+						jjCheckNAddTwoStates(16, 17);
 						break;
+					case 18:
 					case 19:
-					case 20:
-						jjCheckNAddTwoStates(20, 18);
+						jjCheckNAddTwoStates(19, 17);
 						break;
 					default:
 						break;
@@ -239,18 +226,18 @@ public class Prog2TokenManager implements Prog2Constants {
 				long l2 = 1L << (curChar & 077);
 				do {
 					switch (jjstateSet[--i]) {
-					case 12:
+					case 11:
 						if ((jjbitVec0[i2] & l2) != 0L)
-							jjAddStates(5, 7);
+							jjAddStates(0, 2);
 						break;
-					case 17:
+					case 16:
 						if ((jjbitVec0[i2] & l2) != 0L)
-							jjCheckNAddTwoStates(17, 18);
+							jjCheckNAddTwoStates(16, 17);
 						break;
+					case 18:
 					case 19:
-					case 20:
 						if ((jjbitVec0[i2] & l2) != 0L)
-							jjCheckNAddTwoStates(20, 18);
+							jjCheckNAddTwoStates(19, 17);
 						break;
 					default:
 						break;
@@ -263,7 +250,7 @@ public class Prog2TokenManager implements Prog2Constants {
 				kind = 0x7fffffff;
 			}
 			++curPos;
-			if ((i = jjnewStateCnt) == (startsAt = 22 - (jjnewStateCnt = startsAt)))
+			if ((i = jjnewStateCnt) == (startsAt = 21 - (jjnewStateCnt = startsAt)))
 				return curPos;
 			try {
 				curChar = input_stream.readChar();
@@ -273,19 +260,19 @@ public class Prog2TokenManager implements Prog2Constants {
 		}
 	}
 
-	static final int[] jjnextStates = { 11, 16, 7, 9, 2, 12, 13, 15, 19, 21, };
+	static final int[] jjnextStates = { 11, 12, 14, 10, 15, 6, 8, 2, 18, 20, };
 
 	/** Token literal values. */
 	public static final String[] jjstrLiteralImages = { "", null, null, null, null, null, null, null, null, null, null,
-			null, null, null, null, "\53", "\55", "\52", "\57", "\45", "\50", "\51", };
+			"\114", null, null, null, "\53", "\55", "\52", "\57", "\50", "\51", "\56", };
 
 	/** Lexer state names. */
 	public static final String[] lexStateNames = { "DEFAULT", };
-	static final long[] jjtoToken = { 0x3f8881L, };
+	static final long[] jjtoToken = { 0x3f9881L, };
 	static final long[] jjtoSkip = { 0x7eL, };
 	static protected SimpleCharStream input_stream;
-	static private final int[] jjrounds = new int[22];
-	static private final int[] jjstateSet = new int[44];
+	static private final int[] jjrounds = new int[21];
+	static private final int[] jjstateSet = new int[42];
 	static protected char curChar;
 
 	/** Constructor. */
@@ -314,7 +301,7 @@ public class Prog2TokenManager implements Prog2Constants {
 	static private void ReInitRounds() {
 		int i;
 		jjround = 0x80000001;
-		for (i = 22; i-- > 0;)
+		for (i = 21; i-- > 0;)
 			jjrounds[i] = 0x80000000;
 	}
 

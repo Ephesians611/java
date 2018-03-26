@@ -5,13 +5,15 @@ public interface Prog2TreeConstants {
 	public int JJTSTART = 0;
 	public int JJTVOID = 1;
 	public int JJTADD = 2;
-	public int JJTMULT = 3;
-	public int JJTMYID = 4;
-	public int JJTINTEGER = 5;
+	public int JJTSUB = 3;
+	public int JJTMUL = 4;
+	public int JJTDIV = 5;
+	public int JJTLAMBDA = 6;
+	public int JJTMYID = 7;
 
-	public String[] jjtNodeName = { "Start", "void", "Add", "Mult", "MyID", "Integer", };
+	public String[] jjtNodeName = { "Start", "void", "add", "sub", "mul", "div", "LAMBDA", "MyID", };
 }
 /*
- * JavaCC - OriginalChecksum=81515f9cdce7fb4e6dde97ac70adb93d (do not edit this
+ * JavaCC - OriginalChecksum=4b2ae59e0e088f675ec99da0d30a26c6 (do not edit this
  * line)
  */
