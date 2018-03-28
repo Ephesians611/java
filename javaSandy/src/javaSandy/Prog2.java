@@ -137,7 +137,7 @@ class Prog2/* @bgen(jjtree) */ implements Prog2TreeConstants, Prog2Constants {/*
 			Expression();
 			jj_consume_token(15);
 			jj_consume_token(20);
-			// break;
+			// break; //jls made change
 			jj_consume_token(19);
 			jj_consume_token(LAMBDA);
 			var();
