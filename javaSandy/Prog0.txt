@@ -1,8 +1,0 @@
-CS 5318 Spring 2018
-Principles of Programming Languages
-Programming assignment 0
-Due on February 1 (Thursday) at 5pm 
-
-Understand the WordCount program (WordCount.java). 
-Revise the program to print the average length of the lines and the length of the longest word in addition to the three numbers the original program prints. 
-Name your program file as Prog0.java and submit it through TRACS by the due date.
