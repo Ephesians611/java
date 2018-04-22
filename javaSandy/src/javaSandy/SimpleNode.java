@@ -109,12 +109,12 @@ public class SimpleNode implements Node {
 			for (int i = 0; i < children.length; ++i) {
 				SimpleNode n = (SimpleNode) children[i];
 				if (n != null) {
-					n.substitute(varName, this);
 					if (n.toString() == varName)
 					{
 						expr.jjtGetChild(0).jjtSetParent(n.parent);
 						//n.jjtAddChild(expr.jjtGetChild(0), i);
 					}
+					return n.substitute(varName, this);
 				}
 			}
 		}
