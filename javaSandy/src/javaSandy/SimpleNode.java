@@ -104,12 +104,27 @@ public class SimpleNode implements Node {
 		}
 	}
 
-	public void substitute() {
+	public SimpleNode substitute(String varName, SimpleNode expr) {
+		if (children != null) {
+			for (int i = 0; i < children.length; ++i) {
+				SimpleNode n = (SimpleNode) children[i];
+				if (n != null) {
+					n.substitute(varName, this);
+					if (n.toString() == varName)
+					{
+						expr.jjtGetChild(0).jjtSetParent(n.parent);
+						//n.jjtAddChild(expr.jjtGetChild(0), i);
+					}
+				}
+			}
+		}
+		return this;
 		// TODO Auto-generated method stub
 
 	}
 
-	public void applicativeOrderEvaluate() {
+	public SimpleNode applicativeOrderEvaluate() {
+		return null;
 		// TODO Auto-generated method stub
 
 	}

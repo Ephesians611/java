@@ -28,18 +28,18 @@ class Prog2/*@bgen(jjtree)*/implements Prog2TreeConstants, Prog2Constants {/*@bg
 	      //Prog2.ReInit(System.in);
 	      Prog2 t2 = new Prog2(System.in);
 	      ASTStart n2 = t2.Start();
-	      SimpleNode expr1 = (SimpleNode)n2.jjtGetChild(0);
+	      SimpleNode snExprToSubstitute = (SimpleNode)n2.jjtGetChild(0);
 	      
 	      // Print the abstract syntax tree
 	      System.out.println();
 	      System.out.println("The abstract syntax tree:");
-	      expr1.dump("");
+	      snExprToSubstitute.dump("");
 	      
 	      // Print the abstract syntax tree substitution result 
 	      System.out.println();
 	      System.out.println("The substitution result:");
-	      expr1.substitute();
-	      expr1.dump("");
+	      expr.substitute(sVarToSubstitute, snExprToSubstitute);
+	      expr.dump("");
 	      System.out.println();
 	
 	      System.out.println(">>> Lambda Expression Evaluator <<<");

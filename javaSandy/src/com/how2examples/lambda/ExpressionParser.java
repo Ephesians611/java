@@ -4,6 +4,11 @@ import static com.how2examples.lambda.ExpressionParser.ReservedCharacters.APPLIC
 import static com.how2examples.lambda.ExpressionParser.ReservedCharacters.APPLICATION_START_TOKEN;
 import static com.how2examples.lambda.ExpressionParser.ReservedCharacters.LAMBDA_TOKEN;
 import static com.how2examples.lambda.ExpressionParser.ReservedCharacters.NAME_SEPARATOR;
+import static com.how2examples.lambda.ExpressionParser.ReservedCharacters.ADD_TOKEN;
+import static com.how2examples.lambda.ExpressionParser.ReservedCharacters.SUBTRACT_TOKEN;
+import static com.how2examples.lambda.ExpressionParser.ReservedCharacters.MUL_TOKEN;
+import static com.how2examples.lambda.ExpressionParser.ReservedCharacters.DIV_TOKEN;
+import static com.how2examples.lambda.ExpressionParser.ReservedCharacters.MOD_TOKEN;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -105,8 +110,14 @@ class ExpressionParser {
       APPLICATION_START_TOKEN("("),
       APPLICATION_END_TOKEN(")"),
       LAMBDA_TOKEN("\\"),
+      ADD_TOKEN("+"),
+      SUBTRACT_TOKEN("-"),
+      MUL_TOKEN("*"),
+      DIV_TOKEN("/"),
+      MOD_TOKEN("%"),
       NAME_SEPARATOR(".");
-
+	      
+	      
       final String value;
 
       ReservedCharacters(String value) {

@@ -81,12 +81,14 @@ class ExpressionEvaluator {
       return new FunctionApplication(function, evaluate(argument, definitions));
    }
 
+   // f will be argument in Prog3 that will be replaced in the Prog3 lambda expression
    private Expression applyFunctionToArgument(Expression function, Expression argument) {
       Function f = (Function) function;
       Replacement r = createReplacement(f.getBoundVariable(), argument);
       return f.getBody().replace(r);
    }
 
+   // 1st replacement happens
    private Expression evaluateFunction(FunctionApplication a, DefinedFunctions definitions) {
       Expression function = a.getFunction();
       Replacement r = createReplacement(function, evaluate(function, definitions));

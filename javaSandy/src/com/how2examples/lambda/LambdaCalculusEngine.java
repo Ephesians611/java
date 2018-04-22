@@ -23,6 +23,7 @@ public class LambdaCalculusEngine {
       return evaluateExpression(input, EMPTY_LISTENER);
    }
 
+   // hook point? use expression from Prog2
    public Expression evaluateExpression(String input, Listener listener) {
       Expression expression = ExpressionParser.createExpression(input);
       return evaluator.evaluateExpression(expression, definitions, listener);
