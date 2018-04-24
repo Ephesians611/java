@@ -39,7 +39,7 @@ class Prog2/*@bgen(jjtree)*/implements Prog2TreeConstants, Prog2Constants {/*@bg
 	      // Print the abstract syntax tree substitution result 
 	      System.out.println();
 	      System.out.println("The substitution result:");
-	      expr1.substitute(sVarToSubstitute, expr1);
+	      expr.substitute(sVarToSubstitute, expr1);
 	      expr1.dump("");
 	      System.out.println();
 	

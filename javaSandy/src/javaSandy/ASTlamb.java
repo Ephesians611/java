@@ -30,5 +30,17 @@ public class ASTlamb extends SimpleNode {
 
     return fv;
   }
-
+  
+  public SimpleNode substitute(String varName, SimpleNode expr) {
+	    SimpleNode c0 = (SimpleNode)children[0];
+	    SimpleNode c1 = (SimpleNode)children[1];
+	    
+		if (this.toString() == varName) {
+			return this;
+		}
+		if (this.toString() != varName) {
+			return this;
+		}
+		return this;
+	}
 }

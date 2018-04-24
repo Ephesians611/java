@@ -105,19 +105,20 @@ public class SimpleNode implements Node {
 	}
 
 	public SimpleNode substitute(String varName, SimpleNode expr) {
-		if (children != null) {
-			for (int i = 0; i < children.length; ++i) {
-				SimpleNode n = (SimpleNode) children[i];
-				if (n != null) {
-					if (n.toString() == varName)
-					{
-						expr.jjtGetChild(0).jjtSetParent(n.parent);
-						//n.jjtAddChild(expr.jjtGetChild(0), i);
-					}
-					return n.substitute(varName, this);
-				}
-			}
-		}
+//		SimpleNode n = null;
+//		if (children != null) {
+//			for (int i = 0; i < children.length; ++i) {
+//				n = (SimpleNode) children[i];
+//				if (n != null) {
+//					if (n.toString() == varName)
+//					{
+//						expr.jjtGetChild(0).jjtSetParent(n.parent);
+//						//n.jjtAddChild(expr.jjtGetChild(0), i);
+//					}
+//					n.substitute(varName, this);
+//				}
+//			}
+//		}
 		return this;
 		// TODO Auto-generated method stub
 
