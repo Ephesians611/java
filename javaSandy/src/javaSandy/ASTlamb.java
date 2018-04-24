@@ -2,6 +2,13 @@ package javaSandy;
 import java.util.*;
 
 public class ASTlamb extends SimpleNode {
+	private int uniqueId = 0;
+	
+	private char getUniqueName()
+	{
+		return (char)uniqueId++;
+	}
+	
   public ASTlamb(int id) {
     super(id);
   }
@@ -34,12 +41,22 @@ public class ASTlamb extends SimpleNode {
   public SimpleNode substitute(String varName, SimpleNode expr) {
 	    SimpleNode c0 = (SimpleNode)children[0];
 	    SimpleNode c1 = (SimpleNode)children[1];
-	    
+	    char uniqueName;
+	    		
 		if (this.toString() == varName) {
 			return this;
 		}
-		if (this.toString() != varName) {
-			return this;
+		if (this.toString() != varName && !expr.freeVars().contains(c0)) {
+			c1.substitute(varName, expr);
+		}
+		if (this.toString() != varName && expr.freeVars().contains(c0)) {
+			//generate a unique name
+			uniqueName = getUniqueName();
+			this.children[0].
+			c1.substitute(varName, expr);
+			//modify E by substituting the variable name in the left child with the generated unique name and 
+			//all the free occurrences of the variable name in the right subtree of E with the generated unique name, 
+			//and substitute the free occurrences of x in the modified E with E1
 		}
 		return this;
 	}
